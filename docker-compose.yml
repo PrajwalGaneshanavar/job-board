@@ -1,0 +1,19 @@
+version: '3'
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - job-service
+      - auth-service
+
+  job-service:
+    build: ./job-service
+    ports:
+      - "5001:5000"
+
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "5002:5000"
